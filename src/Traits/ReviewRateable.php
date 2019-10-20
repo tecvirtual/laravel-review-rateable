@@ -96,12 +96,12 @@ trait ReviewRateable
     {
         if ($round) {
             return $this->ratings()
-                ->selectRaw('ROUND(AVG(pricing_rating), '.$round.') as averagePricingReviewRateable')
+                ->selectRaw('ROUND(AVG(price_rating), '.$round.') as averagePricingReviewRateable')
                 ->pluck('averagePricingReviewRateable');
         }
 
         return $this->ratings()
-            ->selectRaw('AVG(pricing_rating) as averagePricingReviewRateable')
+            ->selectRaw('AVG(price_rating) as averagePricingReviewRateable')
             ->pluck('averagePricingReviewRateable');
     }
 
